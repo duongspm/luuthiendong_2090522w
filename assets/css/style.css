@@ -3489,6 +3489,13 @@ coccocgrammar {
   font-size: 14px;
   text-transform: uppercase;
   transition: 0.2s linear;
+
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 .tieuchi__name:hover {
   color: var(--color-secondary);
