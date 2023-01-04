@@ -1,4 +1,4 @@
-<?php
+face<?php
 	include "config.php";
 	
 	$type = (!empty($_GET["type"])) ? htmlspecialchars($_GET["type"]) : '';

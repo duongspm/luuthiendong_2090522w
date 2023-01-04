@@ -9,14 +9,19 @@
     $config['photo']['photo_static'][$nametype]['thumb'] = '255x71x1';
     $config['photo']['photo_static'][$nametype]['img_type'] = '.jpg|.gif|.png|.jpeg|.gif';
 
-    $nametype = "banner-quang-cao";
-    $config['photo']['photo_static'][$nametype]['title_main'] = "Banner quảng cáo";
-    $config['photo']['photo_static'][$nametype]['check'] = array("hienthi" => "Hiển thị");
-    $config['photo']['photo_static'][$nametype]['images'] = true;
-    $config['photo']['photo_static'][$nametype]['width'] = 887;
-    $config['photo']['photo_static'][$nametype]['height'] = 207;
-    $config['photo']['photo_static'][$nametype]['thumb'] = '887x207x1';
-    $config['photo']['photo_static'][$nametype]['img_type'] = '.jpg|.gif|.png|.jpeg|.gif';
+    /* Slideshow */
+    $nametype = "bannerr-quang-cao";
+    $config['photo']['man_photo'][$nametype]['title_main_photo'] = "Banner quảng cáo";
+    $config['photo']['man_photo'][$nametype]['check_photo'] = array("hienthi" => "Hiển thị");
+    $config['photo']['man_photo'][$nametype]['number_photo'] = 1;
+    $config['photo']['man_photo'][$nametype]['images_photo'] = true;
+    $config['photo']['man_photo'][$nametype]['avatar_photo'] = true;
+    $config['photo']['man_photo'][$nametype]['link_photo'] = true;
+    $config['photo']['man_photo'][$nametype]['name_photo'] = true;
+    $config['photo']['man_photo'][$nametype]['width_photo'] = 890;
+    $config['photo']['man_photo'][$nametype]['height_photo'] = 207;
+    $config['photo']['man_photo'][$nametype]['thumb_photo'] = '890x207x1';
+    $config['photo']['man_photo'][$nametype]['img_type_photo'] = '.jpg|.gif|.png|.jpeg|.gif';
 
     /* Logo */
     $nametype = "logo";
@@ -63,6 +68,7 @@
     $config['photo']['man_photo'][$nametype]['height_photo'] = 525;
     $config['photo']['man_photo'][$nametype]['thumb_photo'] = '1366x525x1';
     $config['photo']['man_photo'][$nametype]['img_type_photo'] = '.jpg|.gif|.png|.jpeg|.gif';
+    
 
     /* Social */
     //Có nhiều cái thì thêm vào

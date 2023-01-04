@@ -21,9 +21,12 @@
     
     $danhmucdv = $cache->get("select content$lang, photo from #_static where type = ? and find_in_set('hienthi',status) order by id desc", array('danh-muc-dich-vu'), 'result', 7200);
     
-    $tuvan = $cache->get("select name$lang, slugvi, slugen, desc$lang, id from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('tu-van'), 'result', 7200);
+    $tuvan = $cache->get("select name$lang, slugvi, slugen, desc$lang, photo, id from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('tu-van'), 'result', 7200);
 
-    $baogia = $cache->get("select name$lang, slugvi, slugen, desc$lang, id from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('bao-gia'), 'result', 7200);
+    $baogia = $cache->get("select name$lang, slugvi, slugen, desc$lang, photo, id from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('bao-gia'), 'result', 7200);
+    
+    $bannerqc = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('bannerr-quang-cao'), 'result', 7200);
+
     //need
     /* SEO */
     $seoDB = $seo->getOnDB(0,'setting','update','setting');

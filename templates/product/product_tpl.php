@@ -1,4 +1,4 @@
-<div class="title-main"><span>Dự án</span></div>
+<div class="title-main"><span>Sản phẩm</span></div>
 <div class="content-main w-clear">
     <div class="row">
         <div class="productlistss">
@@ -10,8 +10,7 @@
                     </p>
                     <h3 class="name-product text-split"><?=$v['name'.$lang]?></h3>
                     <p class="price-product">
-                        <span
-                            class="price-new"><?=lienhe?></span>
+                        <span class="price-new"><?=lienhe?></span>
                     </p>
                 </a>
             </div>

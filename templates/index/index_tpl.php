@@ -40,228 +40,225 @@
         </div>
     </div>
 </div>
-<div class="row__d">
-    <div class="row--d--left">
-
-    </div>
-    <div class="row--d--right">
-    </div>
-</div>
-<!-- <?php if(!empty($banner)){?>
-<div class="banner effect10">
-    <?= $func->getImage(['class' => 'lazy', 'sizes' => '1366x400x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $banner['photo'], 'alt' => "about"]) ?>
-</div>
-<?php }?> -->
-
-
-<div class="blog pd">
-    <div class="wrapper">
-        <div class="blogg">
-            <div class="heading_top">
+<div class="wrapper">
+    <div class="row__d pd">
+        <div class="row--d--left">
+            <div class="spchuluc">
                 <div class="heading">
-                    <span>Tin tức sự kiện</span>
+                    <div class="heading__bg">
+                        <span>Sản phẩm chủ lực</span>
+                    </div>
                 </div>
-                <div class="slogan">
-                    <span>
-                        <?=$slogan['name'.$lang]?>
-                    </span>
-                </div>
-                <div>
-                    <img src="assets/images/line.png" alt="<?=$setting['name'.$lang]?>">
-                </div>
-            </div>
-            <div class="blog__list">
-                <?php if (!empty($newsnb)) { ?>
-                <div class="blog__right">
-                    <a class="blog__right-item" href="<?=$newsnb[0][$sluglang]?>">
-                        <div class="blog__right-img hover_sang">
-                            <?= $func->getImage(['class' => 'lazy', 'sizes' => '580x355x1', 'upload' => UPLOAD_NEWS_L, 'image' => $newsnb[0]['photo'], 'alt' => $newsnb[0]['name' . $lang]]) ?>
-                        </div>
-                        <div class="blog__right-content">
-                            <span class="blog__name">
-                                <?=$newsnb[0]['name'.$lang]?>
-                            </span>
-                            <div class="blog__right-date">
-                                <div>
-                                    <img src="assets/images/icon-blog.png" alt="<?=$newsnb[0]['name'.$lang]?>">
+                <div class="pro__list">
+                    <?php if(!empty($productnb)){?>
+                    <div class="grid_3 paddingg_20">
+                        <?php for ($i=0; $i < 6; $i++) { 
+                            if(!empty($productnb[$i])){?>
+                        <div class="pro__item">
+                            <a class="text-decoration-none" href="<?= $productnb[$i][$sluglang] ?>"
+                                title="<?= $productnb[$i]['name' . $lang] ?>">
+                                <div class="pic-product scale-img  hover_sang">
+                                    <?=$func->getImage(['sizes' => '280x240x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' =>  $productnb[$i]['photo'], 'alt' =>  $productnb[$i]['name'.$lang]])?>
                                 </div>
-                                <span class="blog__right-date1"><?=date("j F Y",$newsnb[0]['date_created'])?></span>
-                                <span class="blog__right-date2">
-                                    Tin tức
-                                </span>
-                            </div>
-                            <span class="blog__desc">
-                                <?=$v['desc'.$lang]?>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                <div class="blog__left">
-                    <div class="slickblog">
-                        <?php foreach ($newsnb as $v) { ?>
-                        <div>
-                            <a href="<?=$v[$sluglang]?>" title="<?=$v['name'.$lang]?>" class="blog__lef-item">
-                                <div class="blog__left-img hover_sang">
-                                    <?= $func->getImage(['class' => '', 'sizes' => '280x210x1', 'upload' => UPLOAD_NEWS_L, 'image' => $v['photo'], 'alt' => $v['name' . $lang]]) ?>
-                                </div>
-                                <div class="blog__left-content">
-
-                                    <span class="blog__name"> <?=$v['name'.$lang]?></span>
-                                    <div class="blog__right-date">
-                                        <span
-                                            class="blog__right-date1"><?=date("j F Y",$newsnb[0]['date_created'])?></span>
-                                        <span class="blog__right-date2">
-                                            Tin tức
-                                        </span>
+                                <div class="product__content">
+                                    <span class="name-product text-split"><?= $productnb[$i]['name' . $lang] ?></span>
+                                    <div class="desc-product">
+                                        <?=htmlspecialchars_decode($productnb[$i]['desc'.$lang])?>
                                     </div>
-                                    <span class="blog__desc">
-                                        <?=$v['desc'.$lang]?>
-                                    </span>
                                 </div>
                             </a>
                         </div>
-
-                        <?php } ?>
+                        <?php }}?>
                     </div>
+                    <?php }?>
+                    <?php if(count($productnb) > 6){?>
+                    <div class="pro__xemthem">
+                        <a class="text-decoration-none pro--xemthem " href="san-pham" title="Sản phẩm">Xem thêm</a>
+                    </div>
+                    <?php }?>
                 </div>
-                <?php } ?>
             </div>
-        </div>
-    </div>
-</div>
-<div class="albumd pd">
-    <div class="wrapper">
-        <div class="albumdd">
-            <div class="heading_top">
+            <?php if(!empty($productlist)){?>
+            <?php foreach($productlist as $list) {
+                $sanpham = $d->rawQuery("select name$lang,desc$lang, slugvi, slugen,photo,regular_price, id from #_product where id_list = ? and find_in_set('hienthi',status) order by numb,id desc",array($list['id'])); 
+                ?>
+            <div class="spchuluc spchuluc__child">
                 <div class="heading">
-                    <span>Album ảnh</span>
-                </div>
-                <div class="slogan">
-                    <span>
-                        <?=$slogan['name'.$lang]?>
-                    </span>
-                </div>
-                <div>
-                    <img src="assets/images/line.png" alt="<?=$setting['name'.$lang]?>">
-                </div>
-            </div>
-            <div class="albumd__list">
-                <div class="albumd__top">
-                    <?php if(count($thuvienanh)>1){ ?>
-                    <div class="albumd__item">
-                        <div class="album">
-                            <a class="album-image scale-img" href="<?=$thuvienanh[0][$sluglang]?>"
-                                title="<?=$thuvienanh[0]['name'.$lang]?>">
-                                <?=$func->getImage(['class' => 'lazy w-100', 'sizes' => '390x300x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $thuvienanh[0]['photo'], 'alt' => $thuvienanh[0]['name'.$lang]])?>
-                            </a>
-                        </div>
+                    <div class="heading__bg heading__bg02">
+                        <span>
+                            <?=$list['name'.$lang]?>
+                        </span>
                     </div>
-                    <?php } ?>
-                    <?php if(count($thuvienanh)>2){ ?>
-                    <div class="albumd__item">
-                        <div class="album">
-                            <a class="album-image scale-img" href="<?=$thuvienanh[1][$sluglang]?>"
-                                title="<?=$thuvienanh[1]['name'.$lang]?>">
-                                <?=$func->getImage(['class' => 'lazy w-100', 'sizes' => '390x300x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $thuvienanh[1]['photo'], 'alt' => $thuvienanh[1]['name'.$lang]])?>
-                            </a>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <?php if(count($thuvienanh)>3){ ?>
-                    <div class="albumd__item">
-                        <div class="album">
-                            <a class="album-image scale-img" href="<?=$thuvienanh[2][$sluglang]?>"
-                                title="<?=$thuvienanh[2]['name'.$lang]?>">
-                                <?=$func->getImage(['class' => 'lazy w-100', 'sizes' => '390x300x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $thuvienanh[2]['photo'], 'alt' => $thuvienanh[2]['name'.$lang]])?>
-                            </a>
-                        </div>
-                    </div>
-                    <?php } ?>
                 </div>
-                <div class="albumd__buttom">
-                    <?php if(count($thuvienanh)>4){ ?>
-                    <div class="albumd__item">
-                        <div class="album">
-                            <a class="album-image scale-img" href="<?=$thuvienanh[3][$sluglang]?>"
-                                title="<?=$thuvienanh[3]['name'.$lang]?>">
-                                <?=$func->getImage(['class' => 'lazy w-100', 'sizes' => '590x350x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $thuvienanh[3]['photo'], 'alt' => $thuvienanh[3]['name'.$lang]])?>
-                            </a>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <?php if(count($thuvienanh)>5){ ?>
-                    <div class="albumd__item">
-                        <div class="album">
-                            <a class="album-image scale-img" href="<?=$thuvienanh[4][$sluglang]?>"
-                                title="<?=$thuvienanh[4]['name'.$lang]?>">
-                                <?=$func->getImage(['class' => 'lazy', 'sizes' => '590x350x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $thuvienanh[4]['photo'], 'alt' => $thuvienanh[4]['name'.$lang]])?>
-                            </a>
-                        </div>
-                    </div>
-                    <?php } ?>
-                </div>
-            </div>
-
-            <?php if(!empty($thuvienanh)){?>
-            <div class="albumd__list-mobile">
-                <?php foreach($thuvienanh as $v){?>
-                <div class="albumd__mobile-item">
-                    <a class="album-image scale-img" href="<?=$v[$sluglang]?>" title="<?=$v['name'.$lang]?>">
-                        <?=$func->getImage(['class' => 'lazy w-100', 'sizes' => '390x300x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]])?>
-                    </a>
-                </div>
-                <?php } ?>
-
-            </div>
-            <?php } ?>
-
-
-            <?php if (count($thuvienanh)>5){?>
-            <div class="albumd__btn">
-                <a href="thi-vien-anh">Xem thêm công trình</a>
-            </div>
-            <?php } ?>
-        </div>
-    </div>
-</div>
-
-<div class="videoo pd">
-    <div class="wrap">
-        <div class="videoo">
-            <div class="heading_top">
-                <div class="heading">
-                    <span>Video clip</span>
-                </div>
-                <div class="slogan">
-                    <span>
-                        <?=$slogan['name'.$lang]?>
-                    </span>
-                </div>
-                <div>
-                    <img src="assets/images/line.png" alt="<?=$setting['name'.$lang]?>">
-                </div>
-            </div>
-            <?php if(!empty($videoclipd)) {?>
-            <div class="videoo__list">
-                <div class="flipstervideo">
-                    <ul>
-                        <?php foreach($videoclipd as $v){?>
-                        <li class="viddeoo__item">
-                            <div class="video" data-fancybox="video" data-src="<?=$v['link_video']?>">
-                                <div class="video-image scale-img">
-                                    <?=$func->getImage(['class' => '', 'sizes' => '635x308x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]])?>
+                <div class="pro__list">
+                    <?php if(!empty($sanpham)){?>
+                    <div class="grid_3 paddingg_20">
+                        <?php for ($i=0; $i < 6; $i++) { 
+                            if(!empty($sanpham[$i])){?>
+                        <div class="pro__item">
+                            <a class="text-decoration-none" href="<?= $sanpham[$i][$sluglang] ?>"
+                                title="<?= $sanpham[$i]['name' . $lang] ?>">
+                                <div class="pic-product scale-img  hover_sang">
+                                    <?=$func->getImage(['sizes' => '280x240x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' =>  $sanpham[$i]['photo'], 'alt' =>  $sanpham[$i]['name'.$lang]])?>
                                 </div>
-                                <div class="video__info">
-                                    <span class="video__name"><?=$v['name'.$lang]?></span>
-                                    <span class="video__desc"><?=$v['desc'.$lang]?></span>
+                                <div class="product__content">
+                                    <span class="name-product text-split"><?= $sanpham[$i]['name' . $lang] ?></span>
+                                    <div class="desc-product">
+                                        <?=htmlspecialchars_decode($sanpham[$i]['desc'.$lang])?>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <?php }?>
-                    </ul>
+                            </a>
+                        </div>
+                        <?php }}?>
+                    </div>
+                    <?php }?>
+                    <?php if(count($sanpham) > 6){?>
+                    <div class="pro__xemthem">
+                        <a class="text-decoration-none pro--xemthem " href="<?=$list[$sluglang]?>"
+                            title="<?=$list['name'.$lang]?>">Xem
+                            thêm</a>
+                    </div>
+                    <?php }?>
                 </div>
             </div>
             <?php }?>
+            <?php } ?>
+            <?php if(!empty($bannerqc)){?>
+            <div class="bannerqc">
+                <div class="owl-page owl-carousel owl-theme" data-xsm-items="1:0" data-sm-items="1:0"
+                    data-md-items="1:0" data-lg-items="1:0" data-xlg-items="1:0" data-rewind="1" data-autoplay="1"
+                    data-loop="0" data-lazyload="0" data-mousedrag="0" data-touchdrag="0" data-smartspeed="800"
+                    data-autoplayspeed="800" data-autoplaytimeout="5000" data-dots="0"
+                    data-animations="animate__fadeInDown, animate__backInUp, animate__rollIn, animate__backInRight, animate__zoomInUp, animate__backInLeft, animate__rotateInDownLeft, animate__backInDown, animate__zoomInDown, animate__fadeInUp, animate__zoomIn"
+                    data-nav="1"
+                    data-navtext="<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-left' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='5' y1='12' x2='9' y2='16' /><line x1='5' y1='12' x2='9' y2='8' /></svg>|<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-right' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='15' y1='16' x2='19' y2='12' /><line x1='15' y1='8' x2='19' y2='12' /></svg>"
+                    data-navcontainer=".control-slideshow">
+                    <?php foreach($bannerqc as $v) { ?>
+                    <a class="text-decoration-none" href="<?=$v['link']?>" target="_blank"
+                        title="<?=$v['name'.$lang]?>">
+                        <?= $func->getImage(['class' => 'w-100', 'sizes' => '890x207x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
+                    </a>
+                    <?php } ?>
+                </div>
+            </div>
+            <?php }?>
+        </div>
+        <div class="row--d--right">
+            <div class="right__box">
+                <div class="right--heading">
+                    <span>Danh mục dịch vụ</span>
+                </div>
+                <div class="danhmuc__right--content">
+                    <div class="danhmuc__right--img">
+                        <div>
+                            <?= $func->getImage(['class' => 'lazy', 'sizes' => '270x185x1', 'upload' => UPLOAD_NEWS_L, 'image' => $danhmucdv[0]['photo'], 'alt' => $setting['name'.$lang]]) ?>
+                        </div>
+                        <div class="danhmuc__right--hotline">
+                            <span>hotline: <a class="text-decoration-none"
+                                    href="tel:<?=$func->formatPhone($optsetting['phone'])?>">
+                                    <?=$func->formatPhone($optsetting['phone'])?>
+                                </a></span>
+                        </div>
+                    </div>
+                    <div class="right__box--content">
+                        <?=htmlspecialchars_decode($danhmucdv[0]['content'.$lang])?>
+                    </div>
+                </div>
+            </div>
+            <?php if(!empty($tuvan)){?>
+            <div class="right__box tuvan">
+                <div class="right--heading">
+                    <span>Góc tư vấn</span>
+                </div>
+                <div class="right__box--list">
+                    <?php foreach($tuvan as $v){?>
+                    <div class="news__item">
+                        <a href="<?=$v[$sluglang]?>" class="text-decoration-none">
+                            <div class="news__img scale-img effect10">
+                                <?= $func->getImage(['class' => 'lazy', 'sizes' => '90x75x1', 'upload' => UPLOAD_NEWS_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
+                            </div>
+                            <div class="news__content">
+                                <span class="news__name">
+                                    <?=$v['name'.$lang]?>
+                                </span>
+                                <span class="news__desc">
+                                    <?=$v['desc'.$lang]?>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                    <?php }  ?>
+                </div>
+            </div>
+            <?php }?>
+            <?php if(!empty($baogia)){?>
+            <div class="right__box tuvan">
+                <div class="right--heading">
+                    <span>bảng báo giá</span>
+                </div>
+                <div class="right__box--list">
+                    <?php foreach($baogia as $v){?>
+                    <div class="news__item">
+                        <a href="<?=$v[$sluglang]?>" class="text-decoration-none">
+                            <div class="news__img scale-img effect10">
+                                <?= $func->getImage(['class' => 'lazy', 'sizes' => '90x75x1', 'upload' => UPLOAD_NEWS_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
+                            </div>
+                            <div class="news__content">
+                                <span class="news__name">
+                                    <?=$v['name'.$lang]?>
+                                </span>
+                                <span class="news__desc">
+                                    <?=$v['desc'.$lang]?>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                    <?php }  ?>
+                </div>
+            </div>
+            <?php }?>
+            <?php if(!empty($newsnb)){?>
+            <div class="right__box tuvan">
+                <div class="right--heading">
+                    <span>bài viết mới nhất</span>
+                </div>
+                <div class="right__box--list--blog">
+                    <?php foreach($newsnb as $v){?>
+                    <div class="blog__item">
+                        <a href="<?=$v[$sluglang]?>" class="text-decoration-none">
+                            <div class="blog__content">
+                                <span class="blog__name">
+                                    <?=$v['name'.$lang]?>
+                                </span>
+                                <span class="blog__desc">
+                                    <?=$v['desc'.$lang]?>
+                                </span>
+                            </div>
+                            <div class="blog__img scale-img effect10">
+                                <?= $func->getImage(['class' => 'lazy', 'sizes' => '250x185x1', 'upload' => UPLOAD_NEWS_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
+                            </div>
+                        </a>
+                    </div>
+                    <?php }  ?>
+                </div>
+            </div>
+            <?php }?>
+            <div class="right__box tuvan">
+                <div class="right--heading">
+                    <span>fanpage facebook</span>
+                </div>
+                <div class="right__box--list">
+                    <div class="fb-page" data-href="<?=$optsetting['fanpage']?>" data-tabs="timeline" data-width="249"
+                        data-height="294" data-small-header="true" data-adapt-container-width="true"
+                        data-hide-cover="false" data-show-facepile="true">
+                        <div class="fb-xfbml-parse-ignore">
+                            <blockquote cite="<?=$optsetting['fanpage']?>">
+                                <a href="<?=$optsetting['fanpage']?>">Facebook</a>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
