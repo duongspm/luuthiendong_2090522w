@@ -5,7 +5,7 @@
 	date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 	/* Cấu hình coder */
-	define('NN_CONTRACT', 'MSHD');
+	define('NN_CONTRACT', '2090522'); //MSHD
 	define('NN_AUTHOR', 'tranvduong.nina@gmail.com');
 
 	/* Cấu hình chung */
@@ -18,12 +18,12 @@
 		'arrayDomainSSL' => array(),
 		'database' => array(
 			'server-name' => $_SERVER["SERVER_NAME"],
-			'url' => '/2022/source_company/12/datduc_235622w/', // Thay
+			'url' => '/2023/01/luuthiendong_2090522w/', // Thay
 			'type' => 'mysql',
 			'host' => 'localhost',
 			'username' => 'root',
 			'password' => '',
-			'dbname' => '2022-12_datduc_235622w',//Thay
+			'dbname' => '2023-01_2090522w',//Thay
 			'port' => 3306,
 			'prefix' => 'table_',
 			'charset' => 'utf8mb4'

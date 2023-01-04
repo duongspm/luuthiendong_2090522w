@@ -94,18 +94,15 @@ $requick = array(
 	/* Sản phẩm */
 	array("tbl" => "product_list", "field" => "idl", "source" => "product", "com" => "san-pham", "type" => "san-pham"),
 	array("tbl" => "product", "field" => "id", "source" => "product", "com" => "san-pham", "type" => "san-pham", "menu" => true),
+	array("tbl" => "product_cat", "field" => "idc", "source" => "product", "com" => "san-pham", "type" => "san-pham"),
 
-	/* Video */
-	array("tbl" => "photo", "field" => "id", "source" => "video", "com" => "video", "type" => "video", "menu" => true),
+	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "bao-gia", "type" => "bao-gia", "menu" => true),
+
+	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "tu-van", "type" => "tu-van", "menu" => true),
 	
 	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "tin-tuc", "type" => "tin-tuc", "menu" => true),
 
 	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "dich-vu", "type" => "dich-vu", "menu" => true),
-	
-	array("tbl" => "news_list", "field" => "idl", "source" => "news", "com" => "dich-vu", "type" => "dich-vu", "menu" => true),
-
-	/* Thư viện ảnh */
-	array("tbl" => "product", "field" => "id", "source" => "product", "com" => "thu-vien-anh", "type" => "thu-vien-anh", "menu" => true),
 
 	/* Trang tĩnh */
 	array("tbl" => "static", "field" => "id", "source" => "static", "com" => "gioi-thieu", "type" => "gioi-thieu", "menu" => true),
@@ -171,6 +168,22 @@ switch ($com) {
 		$titleMain = "Dịch vụ";
 		break;
 
+	case 'bao-gia':
+		$source = "news";
+		$template = isset($_GET['id']) ? "news/news_detail" : "news/dichvu";
+		$seo->set('type', isset($_GET['id']) ? "article" : "object");
+		$type = $com;
+		$titleMain = "Báo giá";
+		break;
+
+	case 'tu-van':
+		$source = "news";
+		$template = isset($_GET['id']) ? "news/news_detail" : "news/dichvu";
+		$seo->set('type', isset($_GET['id']) ? "article" : "object");
+		$type = $com;
+		$titleMain = "Tư vấn";
+		break;
+
 	case 'san-pham':
 		$source = "product";
 		$template = isset($_GET['id']) ? "product/product_detail" : "product/product";
@@ -203,23 +216,6 @@ switch ($com) {
 		$seo->set('type', 'object');
 		$titleMain = null;
 		break;
-
-	case 'thu-vien-anh':
-		$source = "product";
-		$template = isset($_GET['id']) ? "album/album_detail" : "album/album";
-		$seo->set('type', isset($_GET['id']) ? "article" : "object");
-		$type = $com;
-		$titleMain = thuvienanh;
-		break;
-
-	case 'video':
-		$source = "video";
-		$template = "video/video";
-		$type = $com;
-		$seo->set('type', 'object');
-		$titleMain = "Video";
-		break;
-
 
 	case 'account':
 		$source = "user";

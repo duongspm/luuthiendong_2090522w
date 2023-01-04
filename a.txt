@@ -1,0 +1,20 @@
+repone ẩn danh mục dịch vụ
+
+news
+	tieuchi
+	dichvu
+	baogia
+	tin tuc
+	goctuvan
+product
+	sanpham 2 cap
+photo
+	slider
+	logo
+	banner header
+	banner quang cao
+	social -> name
+static
+	giothieu
+	lienhe
+	footer
