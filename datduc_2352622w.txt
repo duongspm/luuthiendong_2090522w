@@ -1,0 +1,39 @@
+2 slogan
+
+Giới thiệu: hình cho nổi khối lên -> scale
+	nút: liên hệ ngay cho gọi điện
+
+Lĩnh vực hoạt động là phần dịch vụ 2 hình cho nổi khối lên -> trang trong có thay đổi
+
+công trình dạng sản phẩm
+
+video gấn avt
+
+footer tự nhập
+
+
+repon 
+	slide cho cao hơn
+	bỏ nút gọi bên phải -> cho xuống dưới hết
+
+mmenu them footer va logo
+
+
+news
+	tiêu chí
+	dịch vụ 2 hình, 1 cấp
+	tin tức
+product
+	công trình 1 cấp
+	hình ảnh
+photo
+	logo
+	slide
+	banner
+	video -> avt
+static
+	giới thiệu
+	slogan header
+	slogan
+	foter
+	lien hệ
