@@ -1,64 +1,32 @@
 <div class="footer bg">
     <div class="wrapper">
         <div class="footerr">
-            <div class="footer-item">
-                <div class="footer-title">
-                    <span>Thông tin liên hệ</span>
-                </div>
+            <div class="footer-left">
                 <div class="footer-name">
                     <span><?=$setting['name'.$lang]?></span>
                 </div>
+                <div class="footer-title">
+                    <span>
+                        <?=$footer['name'.$lang]?>
+                    </span>
+                </div>
                 <div class="footer-info"><?= htmlspecialchars_decode($footer['content' . $lang]) ?></div>
                 <div class="footer-social">
-                    <span>Mạng xã hội:</span>
                     <?php if(!empty($social)){foreach($social as $v){?>
-                    <a class="social-item" href="<?=$v['link']?>">
-                        <?=$func->getImage(['class' => '', 'sizes' => '40x40x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $v['photo'], 'alt' => $setting['name'.$lang]])?>
+                    <a class="social__item text-decoration-none" href="<?=$v['link']?>">
+                        <div class="social-item">
+                            <?=$func->getImage(['class' => '', 'sizes' => '46x46x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $v['photo'], 'alt' => $setting['name'.$lang]])?>
+                        </div>
+                        <span>
+                            <?=$v['name'.$lang]?>
+                        </span>
                     </a>
                     <?php }}?>
-
-                </div>
-
-            </div>
-            <div class="footer-item">
-                <div class="footer-title">
-                    <span>truy cập nhanh</span>
-                    <div class="footer_line"></div>
-                </div>
-                <div class="footer__list">
-                    <ul>
-                        <li><a href="" title="Giới thiệu">Trang chủ</a></li>
-                        <li><a href="gioi-thieu" title="Giới thiệu">Giới thiệu</a></li>
-
-                        <li><a href="dich-vu" title="Dịch vụ">Dịch vụ</a></li>
-
-                        <li><a href="san-pham" title="Dự án">Dự án</a></li>
-
-                        <li><a href="thu-vien-anh" title="Hình ảnh">Hình ảnh</a></li>
-
-                        <li><a href="video" title="Video">Video</a></li>
-
-                        <li><a href="tin-tuc" title="Tin tức">Tin tức</a></li>
-                        <li><a href="lien-he" title="Liên hệ">Liên hệ</a></li>
-
-                    </ul>
                 </div>
             </div>
-            <div class="footer-item">
-                <div class="footer-title">
-                    <span>Fanpage facebook</span>
-                    <div class="footer_line"></div>
-                </div>
-                <div class="footer-fb">
-                    <div class="fb-page" data-href="<?=$optsetting['fanpage']?>" data-tabs="timeline" data-width="500"
-                        data-height="250" data-small-header="true" data-adapt-container-width="true"
-                        data-hide-cover="false" data-show-facepile="true">
-                        <div class="fb-xfbml-parse-ignore">
-                            <blockquote cite="<?=$optsetting['fanpage']?>">
-                                <a href="<?=$optsetting['fanpage']?>">Facebook</a>
-                            </blockquote>
-                        </div>
-                    </div>
+            <div class="footer-right">
+                <div class="footer__map">
+                    <?= $addons->set('footer-map', 'footer-map', 6); ?>
                 </div>
             </div>
         </div>
@@ -66,24 +34,21 @@
     <div class="copyright">
         <div class="wrapper copyrightt">
             <div class="copyright-left">
-                <span>Copyright © <span class="settingname">
+                <span>Copyright © 2022<span class="settingname">
                         <?=$setting['name'.$lang]?>
-                    </span>. Powered by Nina Co.,Ltd</span>
+                    </span>right reserved. <span class="copyrightname">Design by Nina</span></span>
             </div>
             <div class="copyright-right">
-                <span><?= dangonline ?>: <?= $online ?></span>
+                <span><?= dangonline ?>: <span class="copyright__count"><?= $online ?></span></span>
                 <span>|</span>
-                <span><?= homnay ?>: <?= $counter['today'] ?></span>
+                <span>Truy cập ngày: <span class="copyright__count"><?= $counter['today'] ?></span></span>
                 <span>|</span>
-                <span><?= trongthang ?>: <?= $counter['month'] ?></span>
-                <span>|</span>
-                <span><?= tongtruycap ?>: <?= $counter['total'] ?></span>
+                <span><?= tongtruycap ?>: <span class="copyright__count"><?= $counter['total'] ?></span></span>
             </div>
         </div>
     </div>
 </div>
 
-<?= $addons->set('footer-map', 'footer-map', 6); ?>
 <?= $addons->set('messages-facebook', 'messages-facebook', 2); ?>
 
 <a class="btn-zalo btn-frame text-decoration-none" target="_blank"

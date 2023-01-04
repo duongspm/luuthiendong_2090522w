@@ -134,7 +134,7 @@
                     data-navtext="<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-left' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='5' y1='12' x2='9' y2='16' /><line x1='5' y1='12' x2='9' y2='8' /></svg>|<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-right' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='15' y1='16' x2='19' y2='12' /><line x1='15' y1='8' x2='19' y2='12' /></svg>"
                     data-navcontainer=".control-slideshow">
                     <?php foreach($bannerqc as $v) { ?>
-                    <a class="text-decoration-none" href="<?=$v['link']?>" target="_blank"
+                    <a class="text-decoration-none scale-img effect10" href="<?=$v['link']?>" target="_blank"
                         title="<?=$v['name'.$lang]?>">
                         <?= $func->getImage(['class' => 'w-100', 'sizes' => '890x207x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
                     </a>
@@ -258,6 +258,49 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dichvu">
+    <div class="wrapper">
+        <div class="dichvuu">
+            <div class="dichvu__heading">
+                <span>Dich vu</span>
+                <div>
+                    <img src="assets/images/images/line.png" alt="<?=$setting['name'.$lang]?>">
+                </div>
+            </div>
+            <div class="dichvu__list">
+                <?php if(!empty($dichvunb)){?>
+                <div class="owl-page owl-carousel owl-theme" data-xsm-items="1:30" data-sm-items="1:30"
+                    data-md-items="2:30" data-lg-items="2:30" data-xlg-items="3:30" data-rewind="1" data-autoplay="0"
+                    data-loop="0" data-lazyload="0" data-mousedrag="1" data-touchdrag="1" data-smartspeed="500"
+                    data-autoplayspeed="3500" data-dots="0" data-nav="0"
+                    data-navtext="<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-left' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='5' y1='12' x2='9' y2='16' /><line x1='5' y1='12' x2='9' y2='8' /></svg>|<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-right' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='15' y1='16' x2='19' y2='12' /><line x1='15' y1='8' x2='19' y2='12' /></svg>"
+                    data-navcontainer=".control-bestseller">
+                    <?php foreach($dichvunb as $v) { ?>
+                    <a class="dichvu__item text-decoration-none" href="<?=$v[$sluglang]?>"
+                        title="<?=$v['name'.$lang]?>">
+                        <div class="dichvu__img scale-img hover_sang">
+                            <?= $func->getImage(['class' => 'w-100', 'sizes' => '375x295x1', 'upload' => UPLOAD_NEWS_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
+                        </div>
+                        <div class="dichvu__content">
+                            <span class="dichvu__name">
+                                <?=$v['name'.$lang]?>
+                            </span>
+                            <div class="dichvu__desc">
+                                <span><?=$v['desc'.$lang]?></span>
+                            </div>
+                            <ul class="dichvu__date">
+                                <li>Người đăng: <span>Admin</span></li>
+                                <li><?=date("d/m/Y",$v['date_created'])?></li>
+                            </ul>
+                        </div>
+                    </a>
+                    <?php } ?>
+                </div>
+                <?php }?>
             </div>
         </div>
     </div>
