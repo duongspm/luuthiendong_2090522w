@@ -1,7 +1,7 @@
 <div class="phone_mobi goidienthoai">
     <ul>
         <li class="goidien">
-            <a title="title" id="goidien">
+            <a title="title" id="goidien" href="tel:<?= preg_replace('/[^0-9]/', '', $optsetting['hotline']); ?>">
                 <img src="assets/images/goidien.svg" alt="images">
                 Gọi điện
             </a>

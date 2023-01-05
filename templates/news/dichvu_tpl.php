@@ -1,6 +1,6 @@
 <div class="title-main"><span><?=(!empty($titleCate)) ? $titleCate : @$titleMain?></span></div>
 <div class="dichvu_tpl">
-    <?php if(!empty($dichvu)) { foreach($dichvu as $k => $v) { ?>
+    <?php if(!empty($news)) { foreach($news as $k => $v) { ?>
     <div class="dichvu__tpl--item">
         <div class="dichvu__tpl--left">
             <div class="dichvu__tpl--left-img">

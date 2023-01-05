@@ -162,7 +162,7 @@ switch ($com) {
 
 	case 'dich-vu':
 		$source = "news";
-		$template = isset($_GET['id']) ? "news/news_detail" : "news/dichvu";
+		$template = isset($_GET['id']) ? "news/news_detail" : "news/news";
 		$seo->set('type', isset($_GET['id']) ? "article" : "object");
 		$type = $com;
 		$titleMain = "Dịch vụ";
@@ -170,7 +170,7 @@ switch ($com) {
 
 	case 'bao-gia':
 		$source = "news";
-		$template = isset($_GET['id']) ? "news/news_detail" : "news/dichvu";
+		$template = isset($_GET['id']) ? "news/news_detail" : "news/news";
 		$seo->set('type', isset($_GET['id']) ? "article" : "object");
 		$type = $com;
 		$titleMain = "Báo giá";
@@ -178,7 +178,7 @@ switch ($com) {
 
 	case 'tu-van':
 		$source = "news";
-		$template = isset($_GET['id']) ? "news/news_detail" : "news/dichvu";
+		$template = isset($_GET['id']) ? "news/news_detail" : "news/news";
 		$seo->set('type', isset($_GET['id']) ? "article" : "object");
 		$type = $com;
 		$titleMain = "Tư vấn";

@@ -3,7 +3,7 @@
         <a id="hamburger" href="#menu" title="Menu"><span></span></a>
         <div class="logo-mmenu">
             <a href="" title="<?=trangchu?>">
-                <?=$func->getImage(['sizes' => '60x50x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $logo['photo'], 'alt' => $setting['name'.$lang]])?>
+                <?=$func->getImage(['sizes' => '80x40x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $logo['photo'], 'alt' => $setting['name'.$lang]])?>
             </a>
         </div>
 
@@ -21,37 +21,14 @@
     <nav id="menu">
 
         <ul>
-
-            <div class="mmenu__logo">
-                <a href="" title="<?=trangchu?>" class="peShiner">
-                    <?=$func->getImage(['sizes' => '95x80x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $logo['photo'], 'alt' => $setting['name'.$lang]])?>
-                </a>
-            </div>
- 
             <li><a class="<?php if($com=='' || $com=='index') echo 'active'; ?> transition" href=""
                     title="<?=trangchu?>"><?=trangchu?></a></li>
             <li><a class="<?php if($com=='gioi-thieu') echo 'active'; ?> transition" href="gioi-thieu"
                     title="<?=gioithieu?>"><?=gioithieu?></a></li>
-            <li>
-                <a class="has-child <?php if($com=='dich-vu') echo 'active'; ?> transition" href="dich-vu"
-                    title="Dịch vụ">Dịch vụ</a>
-                <?php if(count($dichvulist)) { ?>
-                <ul>
-                    <?php foreach($dichvulist as $klist => $vlist) {
-                            ?>
-                    <li>
-                        <a class="has-child transition" title="<?=$vlist['name'.$lang]?>"
-                            href="<?=$vlist[$sluglang]?>"><?=$vlist['name'.$lang]?></a>
-
-                    </li>
-                    <?php } ?>
-                </ul>
-                <?php } ?>
-            </li>
 
             <li>
                 <a class="has-child <?php if($com=='san-pham') echo 'active'; ?> transition" href="san-pham"
-                    title="Dự án">Dự án</a>
+                    title="Sản phẩm">Sản phẩm</a>
                 <?php if(count($productlist)) { ?>
                 <ul>
                     <?php foreach($productlist as $klist => $vlist) {
@@ -59,7 +36,18 @@
                     <li>
                         <a class="has-child transition" title="<?=$vlist['name'.$lang]?>"
                             href="<?=$vlist[$sluglang]?>"><?=$vlist['name'.$lang]?></a>
+                        <?php if(!empty($spcat)) { ?>
+                        <ul>
+                            <?php foreach($spcat as $kcat => $vcat) {
+                            ?>
+                            <li>
+                                <a class="has-child transition" title="<?=$vcat['name'.$lang]?>"
+                                    href="<?=$vcat[$sluglang]?>"><?=$vcat['name'.$lang]?></a>
 
+                            </li>
+                            <?php } ?>
+                        </ul>
+                        <?php } ?>
                     </li>
                     <?php } ?>
                 </ul>
@@ -67,11 +55,15 @@
             </li>
 
             <li>
-                <a class="<?php if($com=='thu-vien-anh') echo 'active'; ?> transition menu-line" href="thu-vien-anh"
-                    title="Hình ảnh">Hình ảnh</a>
+                <a class="<?php if($com=='dich-vu') echo 'active'; ?> transition menu-line" href="dich-vu"
+                    title="Dịch vụ">Dịch vụ</a>
             </li>
-            <li><a class="<?php if($com=='video') echo 'active'; ?> transition menu-line" href="video"
-                    title="Video">Video</a></li>
+            <li><a class="<?php if($com=='bao-gia') echo 'active'; ?> transition menu-line" href="bao-gia"
+                    title="Báo giá">Báo giá</a></li>
+            <li>
+                <a class="<?php if($com=='tu-van') echo 'active'; ?> transition menu-line" href="tu-van"
+                    title="Góc tư vấn">Góc tư vấn</a>
+            </li>
             <li>
                 <a class="<?php if($com=='tin-tuc') echo 'active'; ?> transition menu-line" href="tin-tuc"
                     title="Tin tức">Tin tức</a>
@@ -79,10 +71,6 @@
 
             <li><a class="<?php if($com=='lien-he') echo 'active'; ?> transition menu-line" href="lien-he"
                     title="<?=lienhe?>"><?=lienhe?></a></li>
-
-                    <div class="footer-mmenu">
-                        <?= htmlspecialchars_decode($footer['content' . $lang]) ?>
-                    </div>
-                </ul>
+        </ul>
     </nav>
 </div>

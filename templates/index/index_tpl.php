@@ -15,7 +15,7 @@
             </div>
             <?php }?>
         </div>
-        <div class="tieuchi__about">
+        <div class="tieuchi__about grid_tieuchiabout_2 paddingg_tieuchiabout_15 grid_tieuchiabout_1">
             <?php if(!empty($tieuchigioithieu)){for ($i=0; $i < 4; $i++) {
                         if(!empty($tieuchigioithieu[$i])){?>
             <div class="tieuchiabout__item">
@@ -58,7 +58,7 @@
                             <a class="text-decoration-none" href="<?= $productnb[$i][$sluglang] ?>"
                                 title="<?= $productnb[$i]['name' . $lang] ?>">
                                 <div class="pic-product scale-img  hover_sang">
-                                    <?=$func->getImage(['sizes' => '280x240x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' =>  $productnb[$i]['photo'], 'alt' =>  $productnb[$i]['name'.$lang]])?>
+                                    <?=$func->getImage(['sizes' => '280x240x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' =>  $productnb[$i]['photo'], 'alt' =>  $productnb[$i]['name'.$lang]])?>
                                 </div>
                                 <div class="product__content">
                                     <span class="name-product text-split"><?= $productnb[$i]['name' . $lang] ?></span>
@@ -99,7 +99,7 @@
                             <a class="text-decoration-none" href="<?= $sanpham[$i][$sluglang] ?>"
                                 title="<?= $sanpham[$i]['name' . $lang] ?>">
                                 <div class="pic-product scale-img  hover_sang">
-                                    <?=$func->getImage(['sizes' => '280x240x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' =>  $sanpham[$i]['photo'], 'alt' =>  $sanpham[$i]['name'.$lang]])?>
+                                    <?=$func->getImage(['sizes' => '280x240x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' =>  $sanpham[$i]['photo'], 'alt' =>  $sanpham[$i]['name'.$lang]])?>
                                 </div>
                                 <div class="product__content">
                                     <span class="name-product text-split"><?= $sanpham[$i]['name' . $lang] ?></span>
@@ -266,7 +266,7 @@
     <div class="wrapper">
         <div class="dichvuu">
             <div class="dichvu__heading">
-                <span>Dich vu</span>
+                <span>Dịch vụ sửa chữa cửa cuốn</span>
                 <div>
                     <img src="assets/images/images/line.png" alt="<?=$setting['name'.$lang]?>">
                 </div>
@@ -274,7 +274,7 @@
             <div class="dichvu__list">
                 <?php if(!empty($dichvunb)){?>
                 <div class="owl-page owl-carousel owl-theme" data-xsm-items="1:30" data-sm-items="1:30"
-                    data-md-items="2:30" data-lg-items="2:30" data-xlg-items="3:30" data-rewind="1" data-autoplay="0"
+                    data-md-items="2:30" data-lg-items="3:30" data-xlg-items="3:30" data-rewind="1" data-autoplay="0"
                     data-loop="0" data-lazyload="0" data-mousedrag="1" data-touchdrag="1" data-smartspeed="500"
                     data-autoplayspeed="3500" data-dots="0" data-nav="0"
                     data-navtext="<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-left' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='5' y1='12' x2='9' y2='16' /><line x1='5' y1='12' x2='9' y2='8' /></svg>|<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-right' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='15' y1='16' x2='19' y2='12' /><line x1='15' y1='8' x2='19' y2='12' /></svg>"

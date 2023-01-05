@@ -30,7 +30,7 @@ $tempLink .= "&p=";
 $pageLink .= $tempLink;
 
 /* Get data */
-$sql = "select name$lang, slugvi, slugen, id, photo, regular_price, sale_price, discount, type from #_product where type='san-pham' $where and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc";
+$sql = "select name$lang, desc$lang, slugvi, slugen, id, photo, regular_price, sale_price, discount, type from #_product where type='san-pham' $where and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc";
 $sqlCache = $sql . " limit $start, $pagingAjax->perpage";
 $items = $cache->get($sqlCache, $params, 'result', 7200);
 
@@ -42,20 +42,21 @@ $pagingItems = $pagingAjax->getAllPageLinks($countItems, $pageLink, $eShow);
 ?>
 <?php if ($countItems) { ?>
 <div class="grid-page w-clear">
-	<?php foreach ($items as $k => $v) { ?>
-		<div class="product">
-			<a class="box-product text-decoration-none" href="<?= $v[$sluglang] ?>" title="<?= $v['name' . $lang] ?>">
-				<p class="pic-product zoom_hinh hover_sang">
-					<?= $func->getImage(['sizes' => '286x283x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name' . $lang]]) ?>
-				</p>
-				<h3 class="name-product text-split"><?= $v['name' . $lang] ?></h3>
-				<p class="price-product">
-					<span class="price-price">Giá: </span>
-					<span class="price-new"><?= ($v['regular_price']) ? $func->formatMoney($v['regular_price']) : "Liên hệ" ?></span>
-				</p>
-			</a>
-		</div>
-	<?php } ?>
+    <?php foreach ($items as $k => $v) { ?>
+    <div class="product">
+        <a class="box-product text-decoration-none" href="<?= $v[$sluglang] ?>" title="<?= $v['name' . $lang] ?>">
+            <p class="pic-product zoom_hinh hover_sang">
+                <?= $func->getImage(['sizes' => '286x283x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name' . $lang]]) ?>
+            </p>
+            <h3 class="name-product text-split"><?= $v['name' . $lang] ?></h3>
+            <p class="price-product">
+                <span class="price-price">Giá: </span>
+                <span
+                    class="price-new"><?= ($v['regular_price']) ? $func->formatMoney($v['regular_price']) : "Liên hệ" ?></span>
+            </p>
+        </a>
+    </div>
+    <?php } ?>
 </div>
 
 <div class="pagination-ajax"><?= $pagingItems ?></div>

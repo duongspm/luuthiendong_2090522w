@@ -1,4 +1,4 @@
-<div class="menu">
+<div class="menu animate__animated animate__fadeInDown">
     <div class="wrap-content menuuu">
         <ul class="menu-list">
             <li><a class="<?php if($com=='' || $com=='index') echo 'active'; ?> transition menu-line" href=""
